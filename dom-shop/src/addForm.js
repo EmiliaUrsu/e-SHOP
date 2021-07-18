@@ -1,7 +1,8 @@
 let catalog = []
 let id = 1
 
-let nameProduct, imageSrc = null
+let nameProduct = null
+let imageSrc = null
 
 function addFormSubmit(e) {
     e.preventDefault()

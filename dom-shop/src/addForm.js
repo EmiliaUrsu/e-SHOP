@@ -13,30 +13,31 @@ function addFormSubmit(e) {
 
     if (nameProduct && imageSrc && price.value) {
         catalog.push(new Product(id++, nameProduct, imageSrc, price.value))
+        localStorage.setItem("Catalog", JSON.stringify(catalog))
 
-        localStorage.setItem("catalog", JSON.stringify(catalog))
+        
         e.target.reset()
         nameProduct = false
         imageSrc = false
         imagePrev.src = ""
         textValidation.innerHTML = ""
-        alert.innerHTML = ""
+        alert.innerHTML = "" 
     } else {
         if (!alert.children.length) {
             let div = document.createElement('div')
             div.className = "alert alert-danger"
             div.innerText = "You need to complet all rows"
-            alert.appendChild(div)
+            alert.appendChild(div) 
         }
     }
 }
 
 function renderPreview() {
-    const IMAGE_FILTER = ["person","dog", "cat"]
-    let imageFile = document.querySelector('#productImage').files[0]
+    const FILTER = ["person","dog", "cat"]
+    let imgFile = document.querySelector('#productImage').files[0]
     let imagePrev = document.querySelector('#productImagePreview')
     let textValidation = document.querySelector('#productImageValidation')
-    if (imageFile) {
+    if (imgFile) {
         textValidation.innerHTML = `
             <div class="d-flex justify-content-center">
             <div class="spinner-border text-primary" role="status">
@@ -44,30 +45,27 @@ function renderPreview() {
             </div> `
             
     const fileReader = new FileReader()
-    fileReader.readAsDataURL(imageFile)
+    fileReader.readAsDataURL(imgFile)
     fileReader.addEventListener("load", function () {
         imagePrev.src = this.result
 
     cocoSsd.load().then(model => {
     model.detect(imagePrev).then(predictions => {
-    let predictionClass = predictions.map(index => index.class)
+    let predClass = predictions.map(index => index.class)
 
-       if (predictionClass.find(e => IMAGE_FILTER.includes(e))) {
+       if (predClass.find(e => FILTER.includes(e))) {
          textValidation.style = 'color: red'
-         textValidation.innerText = `
-        Uploud a photo that doesn't contain: ${IMAGE_FILTER.join(", ")}.`
+         textValidation.innerText = `  Uploud a photo that doesn't contain: ${FILTER.join(" ")}.`
             imageSrc = false
         } else {
             textValidation.style = 'color: green'
-            textValidation.innerText = `
-            It's ok for adding.`
-             imageSrc = this.result
-                }
+            textValidation.innerText = ` It's ok for adding.`
+            imageSrc = this.result  }
 
-            });
+           });
         });
      })
-  }
+   }
 }
 
  valueValidation = () =>{

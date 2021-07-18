@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-SHOP</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<style>
+    body{
+        background-color: rgba(255, 228, 196, 0.336);
+}
+
+</style>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">e-Shop <i class="bi bi-bag"></i> </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#shopNavigation" aria-controls="shopNavigation" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="shopNavigation">
+            <div id="rootCart"></div>
+            <div id="rootCurrSwitch"></div>
+            
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-secondary" type="submit">Search</button>
+            </form>
+            
+          </div>
+        </div>
+      </nav>
+
+
+
+
+  <section>
+    <header class="container my-5">
+        <h1>
+            Our products :
+        </h1>
+    </header>
+    <div id="root-catalog" class="d-flex">
+
+    </div>
+</section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   
+    <script src="src/Product.js"></script>
+    <script src="src/Cart.js"></script>
+    <script src="src/Currency.js"></script>
+    <script src="src/CurrencySwitcher.js"></script>
+    <script src="src/TestDataService.js"></script>
+    <script src="src/CurrencyService.js"></script>
+    <script src="src/catalog.js"></script>
+    <script src="src/shop.js"></script> 
+   
+</body>
+</html>

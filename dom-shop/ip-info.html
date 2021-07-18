@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX simple example</title>
+</head>
+<body>
+    <input id="search">
+    <button onclick="search()">Go</button>
+    <div id="result"></div>
+   <script>
+function search(){
+        let input  = document.querySelector('#search')
+        let domain = input.value
+        let url = `http://ip-api.com/line/${domain}`
+
+        let xhr = new XMLHttpRequest()  
+            xhr.open("GET", url)
+            
+            xhr.onload = function(){
+        let data = xhr.responseText.split("\n")
+        let country = data[1]
+        let city = data[5]
+
+        let restDiv = document.getElementById('result')
+            restDiv.innerHTML = ` found it in :<br/>  ${country} ${city}  `
+            input.value = ``
+            }
+
+            xhr.send()
+        }
+   </script>
+</body>
+</html>
